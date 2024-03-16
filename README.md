@@ -13,3 +13,5 @@
 - /daily (get daily currency)
 - /frogs (check daily currency)
 - /level [user] (retrieves user rank/level information and display on canvacord)
+
+Currently the bot is private.
