@@ -63,12 +63,12 @@ module.exports = {
     let currentRank =
       allLevels.findIndex((lvl) => lvl.userId === targetUserId) + 1;
 
-    Font.loadDefault();
+    Font.loadDefault();    
 
     const rank = new RankCardBuilder()
       .setDisplayName(targetUserObj.user.displayName) // Big name
       .setUsername(`@${targetUserObj.user.username}`) // small name, do not include it if you want to hide it
-      .setAvatar(targetUserObj.user.displayAvatarURL({ size: 256 })) // user avatar
+      .setAvatar("https://cdn.discordapp.com/embed/avatars/2.png") // user avatar
       .setCurrentXP(fetchedLevel.xp) // current xp
       .setRequiredXP(calculateLevelXp(fetchedLevel.level)) // required xp
       .setLevel(fetchedLevel.level) // user level

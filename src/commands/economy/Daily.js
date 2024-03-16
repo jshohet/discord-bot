@@ -40,6 +40,8 @@ module.exports = {
           );
           return;
         }
+
+        user.lastDaily = new Date();
       } else {
         user = new User({
           ...query,
@@ -50,7 +52,7 @@ module.exports = {
       await user.save();
 
       interaction.editReply(
-        `${dailyAmount} frogs was added to your balance. Your new balance is ${user.balance} frogs.`
+        `${dailyAmount} frogs were added to your balance. Your new balance is ${user.balance} frogs.`
       );
     } catch (error) {
       console.log(`Error with /daily: ${error}`);
