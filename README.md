@@ -1,9 +1,9 @@
-## Chou Bot
+# Chou Bot
 
-# AI Integrated Chatbot
+## AI Integrated Chatbot
 - only works in a channel named "chat-gpt"
 
-# Commands
+## Commands
 - /ping (retrieves bot and user ping)
 - /ban [user] [reason]
 - /yeet [user] [reason]
