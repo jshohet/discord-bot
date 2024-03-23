@@ -24,6 +24,6 @@ module.exports = {
         const number = interaction.options.get("dice-max").value;
         const random = Math.floor(Math.random() * number + 1 );
         
-        interaction.reply(`You rolled a ${random}!`);
+        interaction.reply(`You rolled a ${random} out of ${number}!`);
     }
 }
