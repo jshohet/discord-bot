@@ -4,7 +4,7 @@ const {
   Interaction,
   PermissionFlagsBits,
 } = require("discord.js");
-const AutoRole = require('../../models/AutoRole')
+const AutoRole = require('../../models/AutoRole');
 
 module.exports = {
   name: "autorole-configure",
@@ -17,6 +17,9 @@ module.exports = {
       required: true,
     },
   ],
+  /**
+   *  @param {PermissionFlagsBits} PermissionFlagsBits
+   */
   permissionsRequired: [PermissionFlagsBits.Administrator],
   botPermissions: [PermissionFlagsBits.ManageRoles],
 

@@ -1,5 +1,5 @@
 const { Client, GuildMember } = require("discord.js");
-const AutoRole = require('../../models/AutoRole')
+const AutoRole = require('../../models/AutoRole');
 /**
  *
  * @param {Client} client
@@ -13,7 +13,9 @@ module.exports = async (client, member) => {
             return;
         }
         const autoRole = await AutoRole.findOne({guildId: guild.id});
-        if(!autoRole)return;
+        if(!autoRole) {
+            return;
+        }
         await member.roles.add(autoRole.roleId)
     } catch (error) {
         console.log(`Error giving role automatically: ${error}`)

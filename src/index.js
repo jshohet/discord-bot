@@ -24,7 +24,7 @@ const client = new Client({
     await mongoose.connect(process.env.CONNECTIONSTRING);
     console.log("connected to db.");
     eventHandler(client);
-    client.login(process.env.TOKEN);
+    await client.login(process.env.TOKEN);
   } catch (error) {
     console.log(error);
   }

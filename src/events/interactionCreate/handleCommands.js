@@ -11,7 +11,9 @@ module.exports = async (client, interaction) => {
       (cmd) => cmd.name === interaction.commandName
     );
 
-    if (!commandObject) return;
+    if (!commandObject) {
+        return;
+    }
     if (commandObject.devOnly) {
       if (!process.env.DEVS.includes(interaction.member.id)) {
         interaction.reply({
