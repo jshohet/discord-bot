@@ -54,7 +54,6 @@ module.exports = {
           roleId: targetRoleId,
         });
       }
-
       await autoRole.save();
       interaction.editReply(
         "Autorole has now been configured. To disable run /autorole-disable."
