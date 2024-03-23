@@ -6,6 +6,8 @@ module.exports = async (client, interaction) => {
 
   const localCommands = getLocalCommands();
 
+  await interaction.deferReply({ ephemeral: true });
+
   try {
     const commandObject = localCommands.find(
       (cmd) => cmd.name === interaction.commandName
@@ -16,18 +18,16 @@ module.exports = async (client, interaction) => {
     }
     if (commandObject.devOnly) {
       if (!process.env.DEVS.includes(interaction.member.id)) {
-        interaction.reply({
+        await interaction.editReply({
           content: "Only developers are allowed to run this command.",
-          ephemeral: true,
         });
         return;
       }
     }
     if (commandObject.testOnly) {
       if (!(interaction.guild.id === process.env.TEST_SERVER)) {
-        interaction.reply({
+        await interaction.editReply({
           content: "This command can not be run here.",
-          ephemeral: true,
         });
         return;
       }
@@ -36,9 +36,8 @@ module.exports = async (client, interaction) => {
     if(commandObject.permissionsRequired?.length){
         for(const permission of commandObject.permissionsRequired){
             if(!interaction.member.permissions.has(permission)){
-                interaction.reply({
-                    content: 'Not enough permissions.',
-                    ephemeral: true
+                await interaction.editReply({
+                  content: "Not enough permissions.",
                 });
                 break;
             }
@@ -49,9 +48,8 @@ module.exports = async (client, interaction) => {
        const bot = interaction.guild.members.me;
 
        if(!bot.permissions.has(permission)){
-        interaction.reply({
-            content: 'I dont have enough permissions.',
-            ephemeral: true
+        await interaction.editReply({
+          content: "I dont have enough permissions.",
         });
         break;
        }
