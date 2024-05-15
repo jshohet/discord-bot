@@ -53,7 +53,7 @@ module.exports = async (client, message) => {
 
     const response = await openai.chat.completions
       .create({
-        model: "gpt-4",
+        model: "gpt-4o",
         messages: conversation,
       })
       .catch((error) => console.error(`OpenAI error: ${error}`));

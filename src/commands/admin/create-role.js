@@ -26,7 +26,7 @@ module.exports = {
       type: ApplicationCommandOptionType.String,
     },
   ],
-
+  devOnly:true,
   permissionsRequired: [PermissionFlagsBits.Administrator],
   botPermissions: [PermissionFlagsBits.ManageRoles],
 
@@ -48,7 +48,7 @@ module.exports = {
     }   
 
     try {
-      interaction.guild.roles.create({
+      await interaction.guild.roles.create({
         name: roleName,
         color: roleColor,
         // permissions: bigint1,
